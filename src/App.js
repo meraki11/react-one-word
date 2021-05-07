@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import React,  { Component } from 'react';
+import { AuthorsList } from './Components/AuthorsList';
+import { NewAuthorForm } from './Components/NewAuthorForm';
+import { NewWordForm } from './Components/NewWordForm';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+        <div className="jumbotron jumbotron-fluid">
+          <div className="container">
+            <h1 className="display-4">One Word</h1>
+            <p className="lead">At this moment in time, what is your One Word?</p>
+          </div>
+          <div>
+              <NewAuthorForm />
+          </div>
+          <div>
+              <NewWordForm />
+          </div>
+          <div>
+              <AuthorsList />
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 
-export default App;
+
