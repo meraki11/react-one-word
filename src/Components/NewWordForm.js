@@ -20,19 +20,20 @@ export const NewWordForm = (props) => {
         console.log('props NewWordForm');
         console.log(props);
         e.preventDefault();
-        if (word && date) {
-            let author = {
-            ...props.author, 
-            words: [...props.authors.words, { word: word, date: date}]
-            };
-            delete author._id;
-            setWord('');
-            setDate('');
-            console.log(word);
-            console.log(date);
-        }   else {
-            console.log('not a valid entry');
-        }
+        
+        // if (word && date) {
+        //     let author = {
+        //     ...props.author, 
+        //     words: [...props.authors.words, { word: word, date: date}]
+        //     };
+        //     delete author._id;
+        //     setWord('');
+        //     setDate('');
+        //     console.log(word);
+        //     console.log(date);
+        // }   else {
+        //     console.log('not a valid entry');
+        // }
     };
 
     return (
@@ -42,14 +43,15 @@ export const NewWordForm = (props) => {
                 <input
                     type="text"
                     placeholder="word"
-                    onChange={handleWordInput}
+                    onChange={(e) => setWord( e.target.value )}
                     value={word}
                 />
                 <input
                     type="date"
                     placeholder="date"
-                    onChange={handleDateInput}
+                    onChange={(e) => setDate(e.target.value )}
                     value={date}
+                    format='MM-dd-yyyy'
                 />
                 <button type='submit'>Add your word</button>
             </form>

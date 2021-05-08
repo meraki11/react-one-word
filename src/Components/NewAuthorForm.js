@@ -6,24 +6,22 @@ export const NewAuthorForm = (props) => {
     const [author, setAuthor] = useState('');
 
     const onSubmit = (e) => {
-        console.log(e);
-        console.log('got inside NewAuthorForm OnSubmit');
-        console.log('props NewAuthorForm');
-        console.log(props);
-        e.preventDefault();
-        if (author) {
-            console.log("New Author Name:" + author);
-            console.log('props' + props);
-            let authorsList = {
-            ...props.authorsList, 
-            authors: [...props.authorsList.authors, { author: author}]    
-            };
-            delete authorsList._id;
-            setAuthor('');
-            console.log(author);
-        }   else {
-            console.log('not a valid entry');
-        }
+        props.addNewAuthor(e);
+        // console.log(e);
+        // console.log('got inside NewAuthorForm OnSubmit');
+        // console.log('props NewAuthorForm');
+        // console.log(props);
+        // e.preventDefault();
+        // console.log(author);
+        // if (author) {
+        //     console.log("New Author Name:" + author);
+        //     console.log('props' + props);
+        //     props.addNewAuthor({ author});
+        //     setAuthor('');
+        //     console.log(author);
+        // }   else {
+        //     console.log('not a valid entry');
+        // }
     };
 
     return (

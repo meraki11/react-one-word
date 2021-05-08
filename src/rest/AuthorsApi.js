@@ -15,13 +15,15 @@ class AuthorsApi {
 
     post = async (author) => {
         try {
+            console.log(author);
             const resp = await fetch(AUTHORS_ENDPOINT, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(author)
+                body: JSON.stringify({author})
             });
+            
             return resp.json();
         }   catch (e) {
             console.log('posting authors had an issue', e);
@@ -55,6 +57,7 @@ class AuthorsApi {
                     'Content-Type': 'application/json'
                 }
             });
+            return resp;
             } catch (e) {
             console.log('deleting had an issue', e);
         }

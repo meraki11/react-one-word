@@ -22,10 +22,10 @@ export class AuthorsList extends React.Component {
         this.setState({ authors: json });
     };
 
-    addNewAuthor = async (author) => {
-        await authorsApi.post(author);
-        this.fetchAuthors();
-    }
+    // addNewAuthor = async (author) => {
+    //     await authorsApi.post(author);
+    //     this.fetchAuthors();
+    // }
 
     deleteAuthors = async (id) => {
         await authorsApi.delete(id);
