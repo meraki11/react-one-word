@@ -14,6 +14,7 @@ export class AuthorsList extends React.Component {
     fetchAuthors = async () => {
         console.log('this is inside fetchAuthors')
         const authors = await authorsApi.get();
+        console.log('line 17');
         this.setState({ authors });
         console.log(authors);
     };
@@ -27,14 +28,13 @@ export class AuthorsList extends React.Component {
     render() {
         return (
             <div className='authors-list'>
-                {this.authors && this.authors.length >= 0
-                ? this.state.authors.map((author) => (
+                {this.state.authors.map((author) => (
                     <Author
                         author={author}
                         key={author._id}
                         updateAuthor={this.updateAuthors}
                     />
-                )) : "loading..."}
+                ))}
             </div>
         )
     }

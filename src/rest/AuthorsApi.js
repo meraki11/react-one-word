@@ -1,23 +1,21 @@
 const AUTHORS_ENDPOINT = 'https://crudcrud.com/api/f3e0db214d054a62b515d20fc956b681/authors';
 
 class AuthorsApi {
-    post = async (author) => {
-        try {
-            const resp = await fetch(`${AUTHORS_ENDPOINT}/${author._id}`,{
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify
-            });    
-            return await resp.json();
+    // post = async (author) => {
+    //     try {
+    //         const resp = await fetch(`${AUTHORS_ENDPOINT}/${author._id}`,{
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify
+    //         });    
+    //         return await resp.json();
             
-        }   catch (e) {
-            console.log('creating authors had an issue', e);
-        }
-    }
-
-
+    //     }   catch (e) {
+    //         console.log('creating authors had an issue', e);
+    //     }
+    // }
 
     get = async () => {
         try {
