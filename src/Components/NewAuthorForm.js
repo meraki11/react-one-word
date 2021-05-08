@@ -14,7 +14,11 @@ export const NewAuthorForm = (props) => {
         if (author) {
             console.log("New Author Name:" + author);
             console.log('props' + props);
-            props.addNewAuthor({author});
+            let authorsList = {
+            ...props.authorsList, 
+            authors: [...props.authorsList.authors, { author: author}]    
+            };
+            delete authorsList._id;
             setAuthor('');
             console.log(author);
         }   else {

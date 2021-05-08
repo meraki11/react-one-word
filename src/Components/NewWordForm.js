@@ -6,7 +6,11 @@ export const NewWordForm = (props) => {
     const [word, setWord] = useState('');
     const [date, setDate] = useState('');
 
-    const handleDateInput = (e) => {
+    function handleWordInput(e) {
+        setWord( e.target.value );
+    }
+
+    function handleDateInput(e) {
         const int = parseInt(e.target.value, 10);
         setDate(int >= 0 ? int : '');
     }
@@ -17,7 +21,11 @@ export const NewWordForm = (props) => {
         console.log(props);
         e.preventDefault();
         if (word && date) {
-            props.addNewWord({word, date});
+            let author = {
+            ...props.author, 
+            words: [...props.authors.words, { word: word, date: date}]
+            };
+            delete author._id;
             setWord('');
             setDate('');
             console.log(word);
@@ -34,7 +42,7 @@ export const NewWordForm = (props) => {
                 <input
                     type="text"
                     placeholder="word"
-                    onChange={(e) => setWord(e.target.value)}
+                    onChange={handleWordInput}
                     value={word}
                 />
                 <input
