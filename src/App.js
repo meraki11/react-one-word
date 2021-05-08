@@ -1,25 +1,19 @@
 import React,  { Component } from 'react';
 import { AuthorsList } from './Components/AuthorsList';
-import { authorsApi } from './rest/AuthorsApi.js';
+// import { authorsApi } from './rest/AuthorsApi.js';
 import { NewAuthorForm } from './Components/NewAuthorForm';
 import { NewWordForm } from './Components/NewWordForm';
+// import { Author } from './Components/Author';
 import './App.css';
-// import Moment from 'moment';
+
 
 
 export default class App extends Component {
   constructor(props) {
     super(props); 
     this.state = {
-      
+      authors: []
     }
-    this.addNewAuthor = this.addNewAuthor.bind(this);
-    
-  }
-
-  addNewAuthor = async (author) => {
-    await authorsApi.post(author);
-    this.fetchAuthors();
   }
 
   render() {
@@ -32,13 +26,15 @@ export default class App extends Component {
           </div>
           <div>
               <NewAuthorForm 
-              addNewAuthor= {this.addNewAuthor}/>
+                addNewAuthor={this.addNewAuthor}/>
           </div>
           <div>
-              <NewWordForm />
+              <NewWordForm 
+                addNewWord={this.addNewWord}/>
           </div>
           <div>
-              <AuthorsList />
+              <AuthorsList 
+                />
 
           </div>
         </div>

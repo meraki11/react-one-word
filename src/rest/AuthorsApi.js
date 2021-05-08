@@ -16,7 +16,7 @@ class AuthorsApi {
     post = async (author) => {
         try {
             console.log(author);
-            const resp = await fetch(AUTHORS_ENDPOINT, {
+            const resp = await fetch(`${AUTHORS_ENDPOINT}/${author}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

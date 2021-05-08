@@ -3,13 +3,13 @@ import { NewWordForm } from './NewWordForm';
 import { NewAuthorForm } from './NewAuthorForm';  
 
 export const Author = (props) => {
-    console.log('this is inside the Author function');
+    console.log('this is inside AuthorJS the Author function');
     console.log(props);
     const { author, updateAuthor } = props;
     const { authorsList, updateAuthorsList } = props;
     
     const deleteWord = (wordId) => {
-        console.log('this is inside the deleteWord function');
+        console.log('this is inside AuthorJS the deleteWord function');
         console.log(wordId);
 
         const updatedAuthor = {
@@ -20,7 +20,7 @@ export const Author = (props) => {
     }
 
     const deleteAuthor = (authorId) => {
-        console.log('this is inside the deleteAuthor function');
+        console.log('this is inside AuthorJS the deleteAuthor function');
         console.log(authorId);
 
         const updatedAuthorsList = {
@@ -31,13 +31,13 @@ export const Author = (props) => {
     }
 
     const addNewWord = (word) => {
-        console.log('this is inside addNewWord function');
+        console.log('this is inside AuthorJS the addNewWord function');
         console.log(word);
         updateAuthor({...author, words: [...author.words, word]});
     }
 
     const addNewAuthor = (author) => {
-        console.log('this is inside addNewAuthor function');
+        console.log('this is inside AuthorJS the addNewAuthor function');
         console.log(author);
         updateAuthorsList({...authorsList, authors: [...authorsList.authors, author]});
     }
@@ -50,7 +50,6 @@ export const Author = (props) => {
                     <button onClick={(e) => deleteWord(word._id)}>Remove Word</button>
                 </li>
             ))}
-    
         </ul>
     );
 
@@ -68,12 +67,13 @@ export const Author = (props) => {
     return (
         <div>
             <div>
-                <NewAuthorForm addNewAuthor={addNewAuthor} />
-            </div>
-            <h1>{author.name}</h1>
+            <h1>List of Wordsmiths</h1>
             { 
                 authors({ authors, authorId: author._id, deleteAuthor })
             }
+            <NewAuthorForm addNewAuthor={addNewAuthor} />
+            </div>
+            <h1>{author.name}</h1>
             {
                 words({ words, authorId: author._id, deleteWord })
             }

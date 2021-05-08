@@ -1,26 +1,27 @@
 import React, { useState } from 'react';
 
 export const NewWordForm = (props) => {
-    console.log('NewWord Form props');
+    console.log('NewWordForm props');
     console.log(props);
     const [word, setWord] = useState('');
     const [date, setDate] = useState('');
 
-    function handleWordInput(e) {
-        setWord( e.target.value );
-    }
+    // function handleWordInput(e) {
+    //     setWord( e.target.value );
+    // }
 
-    function handleDateInput(e) {
-        const int = parseInt(e.target.value, 10);
-        setDate(int >= 0 ? int : '');
-    }
+    // function handleDateInput(e) {
+    //     const int = parseInt(e.target.value, 10);
+    //     setDate(int >= 0 ? int : '');
+    // }
 
     const onSubmit = (e) => {
+        props.addNewWord(setWord, setDate);
         console.log(e);console.log('got inside NewWordForm OnSubmit');
         console.log('props NewWordForm');
         console.log(props);
         e.preventDefault();
-        
+
         // if (word && date) {
         //     let author = {
         //     ...props.author, 
@@ -39,7 +40,7 @@ export const NewWordForm = (props) => {
     return (
         <div>
             <h4>Add your one word</h4>
-            <form onSubmit={onSubmit}>
+            <form>
                 <input
                     type="text"
                     placeholder="word"
@@ -53,7 +54,7 @@ export const NewWordForm = (props) => {
                     value={date}
                     format='MM-dd-yyyy'
                 />
-                <button type='submit'>Add your word</button>
+                <button type='submit' onSubmit={onSubmit}>Add your word</button>
             </form>
         </div>
     )
