@@ -1,12 +1,8 @@
 import React,  { Component } from 'react';
 import { AuthorsList } from './Components/AuthorsList';
-// import { authorsApi } from './rest/AuthorsApi.js';
 import { NewAuthorForm } from './Components/NewAuthorForm';
 import { NewWordForm } from './Components/NewWordForm';
-// import { Author } from './Components/Author';
 import './App.css';
-
-
 
 export default class App extends Component {
   constructor(props) {
@@ -24,11 +20,11 @@ export default class App extends Component {
             <h1 className="display-4">One Word</h1>
             <p className="lead">At this moment in time, what is your One Word?</p>
           </div>
-          <div>
+          <div className="container-forms">
               <NewAuthorForm 
                 addNewAuthor={this.addNewAuthor}/>
           </div>
-          <div>
+          <div className="container-forms">
               <NewWordForm 
                 addNewWord={this.addNewWord}/>
           </div>

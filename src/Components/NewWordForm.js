@@ -38,7 +38,7 @@ export const NewWordForm = (props) => {
     };
 
     return (
-        <div>
+        <div className="word-form">
             <h4>Add your one word</h4>
             <form>
                 <input

@@ -25,7 +25,7 @@ export const NewAuthorForm = (props) => {
     };
 
     return (
-        <div>
+        <div className="author-name">
             <h4>Author's Name</h4>
             <form>
                 <input
